@@ -1,30 +1,16 @@
 <h1>Galería de Fotos</h1>
 
-<% @photos.each do |photo| %>
-  <div class="photo">
-    <h2><%= photo.caption %></h2>
-    <%= image_tag photo.image if photo.image.attached? %> <!-- Verifica si hay una imagen adjunta -->
-    <p>Subido por: <strong><%= photo.user.name %></strong></p>
-
-    <h3>Comentarios:</h3>
-    <% photo.comments.includes(:user).each do |comment| %>
-      <div class="comment">
-        <%= image_tag comment.user.profile_picture.url if comment.user.profile_picture.present? %>
-        <strong><%= comment.user.name %>:</strong>
-        <p><%= comment.content %></p>
+<div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag photo.image if photo.image.attached? %> <!-- Verifica si hay una imagen adjunta -->
+        <div class="card-body">
+          <h5 class="card-title"><%= photo.caption %></h5>
+          <p class="card-text">Subido por: <strong><%= photo.user.name %></strong></p>
+          <a href="<%= photo_path(photo) %>" class="btn btn-primary">Ver Detalle</a>
+        </div>
       </div>
-    <% end %>
-
-    <h4>Agregar un comentario:</h4>
-    <%= form_with(model: [photo, Comment.new], local: true) do |form| %>
-      <div class="field">
-        <%= form.label :content %>
-        <%= form.text_area :content %>
-      </div>
-
-      <div class="actions">
-        <%= form.submit "Comentar" %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>

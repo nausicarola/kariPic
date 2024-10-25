@@ -13,17 +13,3 @@
  *= require_tree .
  *= require_self
  */
- .photo {
-    border: 1px solid #ccc;
-    margin: 20px;
-    padding: 10px;
-  }
-  
-  .comment {
-    margin-left: 20px;
-  }
-  
-  .comment img {
-    width: 30px; /* Ajusta el tamaño de la imagen del usuario */
-    height: auto;
-  }
