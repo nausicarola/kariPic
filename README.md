@@ -16,6 +16,17 @@ gem "devise" # Para la autenticación de usuarios
 gem "aws-sdk-s3" # Para interactuar con Amazon S3
 gem "figaro" # Para manejar las configuraciones de entorno
 
+Usuarios
+
+Carola como admin
+carola@gmail.com
+123456
+
+Vicente usuario normal 
+vicente@gmail.com
+123456
+
+
 Link a Fotos
 
 
